@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  /* background: linear-gradient(to right, rgb(255, 167, 35), rgb(255, 97, 35)); */
+  background-color: rgba(102, 105, 104, 0.9);
+  background-image: radial-gradient(farthest-side ellipse at 10% 0, rgba(102,105,104,0.9), rgba(93,112,119,0.89), rgba(160,174,150,0.9));
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+.join-box{
+    margin: 50px;
+    border: 2px solid aliceblue;
+    width: 280px;
+    height: 320px;
+    background-color: white;
+    box-shadow: 0 5px 10px black;
+    border-radius: 5px;
+  }
+
+  header {
+      height: 60px;
+      margin: auto;
+      text-align: center;
+      padding-top: 15px;
+      font-size: 1.5rem;
+      font-weight: bolder;
+      color: #333;
+  }
+
+  form {
+      margin-top: 30px;
+      text-align: center;
+  }
+
+
+  
+/*the container must be positioned relative:*/
+.autocomplete {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input {
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    background-color:  rgba(228, 228, 228, 0.9);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 220px;
+  }
+  
+ button {
+     /* width: 150px; */
+     margin-top: 20px;
+     font-size: 1.1rem;
+     font-weight: 400;
+     border-radius: 5px;
+     border: 1px solid rgb(58, 47, 47);
+     cursor: pointer;
+ }
+ button:hover {
+    background-color:  rgba(203, 206, 207, 0.89);
+  }
+
+   .autocomplete div {
+      margin-top: -5px;
+  } 
+  
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    padding: 0px;
+    margin: 0px;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .autocomplete-items div {
+    padding: 5px;
+    text-align: left;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+    
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: rgb(180, 184, 189) !important; 
+    color: #ffffff; 
+  }

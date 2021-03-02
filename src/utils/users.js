@@ -50,9 +50,26 @@ const getUsersInRoom = (room) => {
     return users.filter((user) => user.room === room)
 }
 
+const getRooms = () => {
+    const rooms = [... new Set( users.map( (user) => user.room ))]
+    return rooms.sort()
+}
+
 module.exports = {
     addUser,
     removeUser,
     getUser,
-    getUsersInRoom
+    getUsersInRoom,
+    getRooms
 }
+
+
+//for Development purpose
+// addUser({id: 1, username: 'alex', room: 'room3'})
+// addUser({id: 2, username: 'ron', room: 'room1'})
+// addUser({id: 3, username: 'moni', room: 'room1'})
+// addUser({id: 4, username: 'aki', room: 'room2'})
+// addUser({id: 4, username: 'aki', room: 'room1'})
+
+// console.log(getRomms())
+

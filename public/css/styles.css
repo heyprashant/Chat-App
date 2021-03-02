@@ -83,6 +83,10 @@ button:disabled {
     width: 100%;
 }
 
+.active__rooms {
+    background: #F7F7FA;
+}
+
 /* Chat Page Layout */
 
 .chat {
