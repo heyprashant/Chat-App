@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name='viewport' 
+        content='width=device-width, initial-scale=1.0, maximum-scale=1.0, 
+        user-scalable=0' >
         <title>Chat App</title>
         <link rel="icon" href="./img/favicon.png">
-        <link rel="stylesheet" href="./css/styles.min.css">
+        <link rel="stylesheet" href="./css/chat.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,500&display=swap" rel="stylesheet">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     </head>
     <body>
         <div class="chat">
-            <div id="sidebar" class="chat__sidebar">
-
-            </div>
+            <div  id="sidebar" class="chat__sidebar"></div>
+             <div class="chat__header">
+                <div id='usersIcon'><i class="fa fa-users icon" aria-hidden="true"></i></div>
+                <p>Chat Room</p>
+             </div>
+             <div class="backdrop" id='backdrop'></div>
             <div class="chat__main">
                 <div id="messages" class="chat__messages"></div>
                 
                 <div class="compose">
                     <form id="message-form">
-                        <input name="message" placeholder="Message" required autocomplete="off">
-                        <button>Send</button>
+                        <input type="text" name="message" placeholder="Send a message" required autocomplete="off">
+                        <button><i class="fa fa-paper-plane send" aria-hidden="true"></i></button>
                     </form>
-                    <button id="send-location">Send location</button>
+                    <button id="send-location"><i class="fas fa-map-marker-alt send" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
         
         <script id="message-template" type="text/html">
-            <div class="message">
+            <div class="message {{msgClass}}" id=sendMessage>
                 <p>
-                    <span class="message__name">{{username}}</span>
+                    <span class="message__name ">{{username}}</span>
                     <span class="message__meta">{{createdAt}}</span>
                 </p>
-                <p>{{message}}</p>
+                <p class='{{msgBubble}}'>{{message}}</p>
             </div>
         </script>
 
         <script id="location-message-template" type='text/html'>
-            <div class="message">
+            <div class="message {{msgClass}}" >
                 <p>
                     <span class="message__name">{{username}}</span>
                     <span class="message__meta">{{createdAt}}</span>
                 </p>
-                <p><a href="{{url}}" target="_blank"> My current location</a></p>
+                <p class='{{msgBubble}}'><a href="{{url}}" target="_blank"> My current location</a></p>
             </div>
         </script>
 
         <script id="sidebar-template" type="text/html">
-            <h2 class="room-title">{{room}}</h2>
-            <h3 class="list-title">Users</h3>
+            <h2 class="room-title">{{room}}
+            <!-- <div  id="sidebarCloser" ><i  class="fa fa-angle-double-right sidebar-closer" aria-hidden="true"></i></div> -->
+            </h2> 
+            <div class="display-list">
             <ul class="users">
                 {{#users}}
-                    <li>{{username}}</li>
+                    <li> <span  style='font-size:8px; margin:5px; text-align:top '> 🟢 </span>{{username}}</li>
                 {{/users}}
             </ul>
+            </div>
         </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
